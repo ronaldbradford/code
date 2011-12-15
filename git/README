@@ -1,0 +1,10 @@
+
+git config --global user.name "Ronald Bradford"
+git config --global user.email ronald.bradford@gmail.com
+
+# Public
+git clone http://github.com/ronaldbradford/reqstat
+# Private
+git clone https://ronaldbradford@github.com/ronaldbradford/private.git
+
+
