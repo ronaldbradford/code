@@ -1,7 +1,6 @@
 ping -c 1 localhost
-
 ping -c 1 xxx.localhost
-#ping: unknown host xxx.localhost
+#Expected Error: ping: unknown host xxx.localhost
 
 sudo apt-get install dnsmasq
 echo "address=/localhost/127.0.0.1" > /tmp/localhost
@@ -18,11 +17,4 @@ sudo /etc/init.d/network-manager restart
 
 ping -c 1 xxx.localhost
 
-
-
-Or 
-
-listen-address=127.0.0.1 in /tmp/localhost
-
-and 
-nameserver 127.0.0.1 #first in /etc/resolv.conf
+#Unknown if nameserver 127.0.0.1 #first in /etc/resolv.conf
