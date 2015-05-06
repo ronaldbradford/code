@@ -1,3 +1,5 @@
+# Calculate the square root to a given precision
+# Using Newtons Method - https://en.wikipedia.org/wiki/Newton%27s_method
 def squareroot(number, precision = 5):
   root = number/2.0
   for i in range(20):
