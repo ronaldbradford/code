@@ -8,3 +8,17 @@ git config --global push.default simple
 git clone https://github.com/ronaldbradford/code
 # Manage
 git clone git@github.com:ronaldbradford/code.git
+
+# Git Review (OpenStack) -- http://docs.openstack.org/infra/manual/developers.html
+git config --global gitreview.scheme https
+git config --global gitreview.port 443
+git config --global gitreview.username ronaldbradford
+
+# Project Modifications
+cd <project>
+git review -s
+git remote update
+git checkout master
+git pull --ff-only origin master
+
+git checkout -b <TOPIC-BRANCH>
