@@ -27,11 +27,18 @@ DATABASE_PASSWORD=\$ADMIN_PASSWORD
 RABBIT_PASSWORD=\$ADMIN_PASSWORD
 SERVICE_PASSWORD=\$ADMIN_PASSWORD
 SERVICE_TOKEN=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
-HOST_IP=${IP}" > ${LOCAL_CONF}
+HOST_IP=${IP}
+enable_plugin magnum https://github.com/openstack/magnum
+PUBLIC_INTERFACE=eth1
+VOLUME_BACKING_FILE_SIZE=20G" > ${LOCAL_CONF}
 
 cat ${LOCAL_CONF}
 
-chown ${NEW_USER}:${NEW_USER} local.conf
+echo "#!/bin/sh
+sudo iptables -t nat -A POSTROUTING -o br-ex -j MASQUERADE" > local.sh
+
+chown ${NEW_USER}:${NEW_USER} local.conf local.sh
+chmod 755 local.sh
 mv ${LOCAL_CONF} /home/${NEW_USER}/devstack
 
 exit 0
