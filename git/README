@@ -10,6 +10,7 @@ git clone https://github.com/ronaldbradford/code
 git clone git@github.com:ronaldbradford/code.git
 
 # Git Review (OpenStack) -- http://docs.openstack.org/infra/manual/developers.html
+sudo apt-get install -y git-review
 git config --global gitreview.scheme https
 git config --global gitreview.port 443
 git config --global gitreview.username ronaldbradford
