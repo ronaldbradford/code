@@ -12,7 +12,8 @@ ls -l ${NEW_USER_SUDO_FILE}
 
 [ -z `which git` ] && sudo apt-get install -y git-core
 
-echo 'Acquire::http::Proxy "http://192.168.1.50:3142";' | tee /etc/apt/apt.conf.d/90-apt-proxy.conf
+APT_CACHE_CONF="/etc/apt/apt.conf.d/90-apt-cacher"
+[ ! -f "${APT_CACHE_CONF}" ] && echo 'Acquire::http::Proxy "http://192.168.1.50:3142";' | tee ${APT_CACHE_CONF}
 
 sudo su - stack -c "git clone https://git.openstack.org/openstack-dev/devstack"
 sudo su - stack -c "git config --global user.name 'Ronald Bradford'; git config --global user.email me@ronaldbradford.com"
