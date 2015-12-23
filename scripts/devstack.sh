@@ -29,6 +29,9 @@ RABBIT_PASSWORD=\$ADMIN_PASSWORD
 SERVICE_PASSWORD=\$ADMIN_PASSWORD
 SERVICE_TOKEN=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
 HOST_IP=${IP}
+LOG_COLOR=False
+#OFFLINE=True
+#RECLONE=True
 #enable_plugin magnum https://github.com/openstack/magnum
 #PUBLIC_INTERFACE=eth1
 #VOLUME_BACKING_FILE_SIZE=20G" > ${LOCAL_CONF}
