@@ -2,7 +2,10 @@
 export EDITOR=`which vi`
 git config --global user.name "Ronald Bradford"
 git config --global user.email ronald.bradford@gmail.com
+git config --global core.editor vi
 git config --global push.default simple
+
+
 git commit --amend --reset-author
 
 
