@@ -1,0 +1,20 @@
+ENV_NAME = "hadoop"
+VM_OS    = "centos/7"
+VM_RAM   = "2048"
+VM_IP    = "192.168.42.20"
+
+Vagrant.configure(2) do |config|
+  config.vm.box = VM_OS
+  config.vm.hostname = ENV_NAME
+  config.vm.network "private_network", ip: VM_IP
+
+  config.vm.define ENV_NAME do |node|
+    node.vm.provider :virtualbox do |vb|
+      vb.name = ENV_NAME
+      vb.memory = VM_RAM
+    end
+  end
+
+  config.vm.provision "shell", path: "install.sh"
+end
+
